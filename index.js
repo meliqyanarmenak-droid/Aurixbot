@@ -531,6 +531,7 @@ bot.start((ctx) => {
 });
 
 bot.hears("💰 Рассчитать стоимость", async (ctx) => {
+  await ctx.reply("Запускаем калькулятор...", Markup.removeKeyboard());
   await ctx.scene.enter("calculator-wizard");
 });
 
