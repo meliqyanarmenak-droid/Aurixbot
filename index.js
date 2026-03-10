@@ -20,7 +20,7 @@ const siteTariffs = [
   {
     id: "dominion",
     name: "DOMINION",
-    basePrice: 329000,
+    basePrice: 249000,
     description: "Флагманская цифровая система\n• Маркетинговый аудит\n• Смысловая архитектура\n• Уникальный high‑end дизайн\n• Сложные анимации (3D, параллакс)\n• Профессиональный копирайтинг\n• CRM‑интеграции (Bitrix24 / AmoCRM)\n• Сквозная аналитика (Метрика + GA4)\n• Автоматизация лидов\n• Оптимизация скорости (Core Web Vitals)\n• Инструкция и 1 месяц поддержки",
     normalTime: "30-60 рабочих дней",
     urgentTime: "25-35 дней"
@@ -28,7 +28,7 @@ const siteTariffs = [
   {
     id: "ascent",
     name: "ASCENT",
-    basePrice: 139000,
+    basePrice: 129000,
     description: "Бизнес‑сайт с маркетинговой основой\n• Анализ конкурентов и ключевых смыслов\n• Уникальный дизайн без шаблонов\n• Базовая анимация (hover, появления)\n• Структура под удержание пользователя\n• Формы заявок в Telegram / на почту\n• Базовая аналитика (цели, счётчики)\n• Оптимизация скорости",
     normalTime: "18-30 рабочих дней",
     urgentTime: "15-25 дней"
@@ -36,7 +36,7 @@ const siteTariffs = [
   {
     id: "origin",
     name: "ORIGIN",
-    basePrice: 65000,
+    basePrice: 59000,
     description: "Стартовый сайт (Landing Page)\n• Современный дизайн\n• Адаптация под мобильные\n• Формы обратной связи (заявки на почту)\n• Установка на домен и хостинг\n• Базовая аналитика",
     normalTime: "7-14 рабочих дней",
     urgentTime: "5-9 дней"
@@ -88,7 +88,7 @@ const siteAddons = [
   {
     id: "branding",
     name: "Фирменный стиль + логотип",
-    price: 30000,
+    price: 10000,
     description: "айдентика, визуальная система",
     freeFor: []
   },
@@ -112,35 +112,35 @@ const botAddons = [
   {
     id: "ai",
     name: "Разработка AI-бота (нейросеть)",
-    price: 35000,
+    price: 25000,
     description: "подключение искусственного интеллекта",
-    freeFor: ["core"]
+    freeFor: []
   },
   {
     id: "payments",
     name: "Интеграция платежей",
-    price: 18000,
+    price: 10000,
     description: "приём оплат внутри бота",
-    freeFor: ["core", "flow"]
+    freeFor: ["core"]
   },
   {
     id: "crm",
     name: "Подключение CRM",
     price: 20000,
     description: "интеграция с внешней CRM",
-    freeFor: ["core"]
+    freeFor: []
   },
   {
     id: "admin",
     name: "Админ-панель для управления ботом",
-    price: 30000,
+    price: 10000,
     description: "веб-интерфейс для управления",
-    freeFor: ["core"]
+    freeFor: []
   },
   {
     id: "mailings",
     name: "Массовые рассылки и автоворонки",
-    price: 22000,
+    price: 15000,
     description: "настройка автоматических воронок",
     freeFor: []
   }
@@ -547,11 +547,16 @@ bot.hears("📩 Оставить заявку", async (ctx) => {
 
 bot.hears("🎨 Наши проекты", (ctx) => {
   ctx.reply(
-    "Наши проекты:",
+    "Наши проекты(примеры):",
     Markup.inlineKeyboard([
       [Markup.button.url("🚀 Инфопродукт", "https://meliqyanarmenak-droid.github.io/info-prod/")],
-      [Markup.button.url("🎬 Портфолио монтажа", "https://meliqyanarmenak-droid.github.io/editing-portfolio/")],
-      [Markup.button.url("💼 Портфолио сайта", "https://meliqyanarmenak-droid.github.io/portfolio/")],
+      [Markup.button.url("🌹 Сайт для цветочного магазина", "https://meliqyanarmenak-droid.github.io/flower-test/")],
+      [Markup.button.url("🎮 Сайт для Пк клуба", "https://meliqyanarmenak-droid.github.io/pc-site/")],
+      [Markup.button.url("☕️ Сайт для Кофейни", "https://meliqyanarmenak-droid.github.io/Coffee-demo/")],
+      [Markup.button.url("💅 Сайт для Салона красоты", "https://meliqyanarmenak-droid.github.io/Luminere-demo/")],
+      [Markup.button.url("🦷 Сайт для Стоматологии", "https://meliqyanarmenak-droid.github.io/demo-stomatology/")],
+      [Markup.button.url("🎬 Сайт-Портфолио монтажера", "https://meliqyanarmenak-droid.github.io/editing-portfolio/")],
+      [Markup.button.url("💼 Сайт-Портфолио разработчика", "https://meliqyanarmenak-droid.github.io/portfolio/")],
       [Markup.button.callback("⬅️ Назад", "back_to_main")]
     ]),
   );
