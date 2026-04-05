@@ -427,7 +427,7 @@ async function renderAddons(ctx, edit = false) {
 async function sendUrgencyQuestion(ctx) {
   const tariff = ctx.session.calculator.tariff;
   const normalTimeText = `Обычные сроки (${tariff.normalTime})`;
-  const urgentTimeText = `Срочно (+20000₽, ${tariff.urgentTime})`;
+  const urgentTimeText = `Срочно (+5000₽, ${tariff.urgentTime})`;
 
   await ctx.reply(
     "Выберите сроки выполнения:",
@@ -456,7 +456,7 @@ async function showResult(ctx) {
     addonsText = "• Не выбраны";
   }
 
-  const timeText = urgent ? `Срочно (+2000₽, ${tariff.urgentTime})` : `Обычные сроки (${tariff.normalTime})`;
+  const timeText = urgent ? `Срочно (+5000₽, ${tariff.urgentTime})` : `Обычные сроки (${tariff.normalTime})`;
 
   const resultMessage = `
 🎯 *Ваш расчёт:*
