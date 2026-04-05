@@ -20,23 +20,23 @@ const siteTariffs = [
   {
     id: "dominion",
     name: "DOMINION",
-    basePrice: 249000,
+    basePrice: 89000,
     description: "Флагманская цифровая система\n• Маркетинговый аудит\n• Смысловая архитектура\n• Уникальный high‑end дизайн\n• Сложные анимации (3D, параллакс)\n• Профессиональный копирайтинг\n• CRM‑интеграции (Bitrix24 / AmoCRM)\n• Сквозная аналитика (Метрика + GA4)\n• Автоматизация лидов\n• Оптимизация скорости (Core Web Vitals)\n• Инструкция и 1 месяц поддержки",
-    normalTime: "30-60 рабочих дней",
-    urgentTime: "25-35 дней"
+    normalTime: "25-40 рабочих дней",
+    urgentTime: "20-25 дней"
   },
   {
     id: "ascent",
     name: "ASCENT",
-    basePrice: 129000,
+    basePrice: 45000,
     description: "Бизнес‑сайт с маркетинговой основой\n• Анализ конкурентов и ключевых смыслов\n• Уникальный дизайн без шаблонов\n• Базовая анимация (hover, появления)\n• Структура под удержание пользователя\n• Формы заявок в Telegram / на почту\n• Базовая аналитика (цели, счётчики)\n• Оптимизация скорости",
-    normalTime: "18-30 рабочих дней",
-    urgentTime: "15-25 дней"
+    normalTime: "15-25 рабочих дней",
+    urgentTime: "10-15 дней"
   },
   {
     id: "origin",
     name: "ORIGIN",
-    basePrice: 59000,
+    basePrice: 21000,
     description: "Стартовый сайт (Landing Page)\n• Современный дизайн\n• Адаптация под мобильные\n• Формы обратной связи (заявки на почту)\n• Установка на домен и хостинг\n• Базовая аналитика",
     normalTime: "7-14 рабочих дней",
     urgentTime: "5-9 дней"
@@ -47,26 +47,26 @@ const botTariffs = [
   {
     id: "core",
     name: "CORE",
-    basePrice: 89000,
+    basePrice: 25000,
     description: "Флагманский бот с полной автоматизацией\n• Автоворонки + CRM + API + платежи\n• Многоуровневая логика, роли, персонализация\n• Интеграции с сайтами и Google Sheets\n• Кастомный UX/дизайн сообщений\n• 30 дней поддержки и документация",
-    normalTime: "25-45 рабочих дней",
-    urgentTime: "18-30 дней"
+    normalTime: "14-20 рабочих дней",
+    urgentTime: "10-14 дней"
   },
   {
     id: "flow",
     name: "FLOW",
-    basePrice: 39000,
+    basePrice: 12000,
     description: "Сбалансированный бот для бизнеса\n• Сценарии диалогов и меню\n• Сбор заявок и рассылки\n• Интеграции (Telegram/Sheets)\n• Чистая структура и UX-логика",
-    normalTime: "14-25 рабочих дней",
-    urgentTime: "10-17 дней"
+    normalTime: "10-14 рабочих дней",
+    urgentTime: "5-10 дней"
   },
   {
     id: "start",
     name: "START",
-    basePrice: 17000,
+    basePrice: 7000,
     description: "Базовый Telegram-бот\n• Меню, автоответы, кнопки\n• Сбор заявок\n• Простое развертывание",
-    normalTime: "5-10 рабочих дней",
-    urgentTime: "3-7 дней"
+    normalTime: "до 5 рабочих дней",
+    urgentTime: "до 3 дней"
   }
 ];
 
@@ -74,14 +74,14 @@ const siteAddons = [
   {
     id: "maintenance",
     name: "Техническое обслуживание",
-    price: 9000,
+    price: 10000,
     description: "ежемесячно (бэкапы, мониторинг, обновления)",
-    freeFor: []
+    freeFor: ["dominion"]
   },
   {
     id: "seo",
-    name: "SEO-оптимизация",
-    price: 29000,
+    name: "SEO-оптимизация и продвижение",
+    price: 10000,
     description: "разовая (мета-теги, оптимизация контента)",
     freeFor: []
   },
@@ -95,7 +95,7 @@ const siteAddons = [
   {
     id: "context",
     name: "Контекстная реклама",
-    price: 19000,
+    price: 9000,
     description: "настройка Яндекс/Google + % от бюджета",
     freeFor: []
   }
@@ -105,21 +105,21 @@ const botAddons = [
   {
     id: "support",
     name: "Техническая поддержка",
-    price: 7000,
+    price: 5000,
     description: "ежемесячно",
     freeFor: []
   },
   {
     id: "ai",
     name: "Разработка AI-бота (нейросеть)",
-    price: 25000,
+    price: 35000,
     description: "подключение искусственного интеллекта",
     freeFor: []
   },
   {
     id: "payments",
     name: "Интеграция платежей",
-    price: 10000,
+    price: 3000,
     description: "приём оплат внутри бота",
     freeFor: ["core"]
   },
@@ -133,14 +133,14 @@ const botAddons = [
   {
     id: "admin",
     name: "Админ-панель для управления ботом",
-    price: 10000,
+    price: 5000,
     description: "веб-интерфейс для управления",
     freeFor: []
   },
   {
     id: "mailings",
     name: "Массовые рассылки и автоворонки",
-    price: 15000,
+    price: 3000,
     description: "настройка автоматических воронок",
     freeFor: []
   }
@@ -175,7 +175,7 @@ function calculateTotal(sessionData) {
       total += addon.price;
     }
   }
-  if (urgent) total += 20000;
+  if (urgent) total += 5000;
   return total;
 }
 
@@ -275,7 +275,7 @@ const calculatorWizard = new WizardScene(
       ctx.session.calculator.addons = [];
 
       await ctx.reply(
-        `Вы выбрали тариф *${tariff.name}*.\n\n${tariff.description}\n\nБазовая стоимость: ${tariff.basePrice}₽`,
+        `Вы выбрали тариф *${tariff.name}*.\n\n${tariff.description}\n\nБазовая стоимость: от ${tariff.basePrice}₽`,
         { parse_mode: "Markdown" }
       );
 
@@ -382,7 +382,7 @@ async function renderAddons(ctx, edit = false) {
   const addons = getAddonsByType(type);
 
   let text = `*Дополнительные услуги для тарифа ${tariff.name}*\n\n`;
-  text += `Базовая стоимость: ${tariff.basePrice}₽\n`;
+  text += `Базовая стоимость: от ${tariff.basePrice}₽\n`;
   let addonsTotal = 0;
   const addonLines = [];
   for (const addon of addons) {
@@ -396,7 +396,7 @@ async function renderAddons(ctx, edit = false) {
   }
   text += addonLines.join("\n\n");
   text += `\n\n*Сумма доп. услуг: ${addonsTotal}₽*\n`;
-  text += `*Текущая предварительная стоимость: ${tariff.basePrice + addonsTotal}₽*`;
+  text += `*Текущая предварительная стоимость: от ${tariff.basePrice + addonsTotal}₽*`;
   text += `\n\nНажимайте на услуги, чтобы выбрать или отменить.`;
 
   const buttons = addons.map(addon => {
@@ -456,7 +456,7 @@ async function showResult(ctx) {
     addonsText = "• Не выбраны";
   }
 
-  const timeText = urgent ? `Срочно (+20000₽, ${tariff.urgentTime})` : `Обычные сроки (${tariff.normalTime})`;
+  const timeText = urgent ? `Срочно (+2000₽, ${tariff.urgentTime})` : `Обычные сроки (${tariff.normalTime})`;
 
   const resultMessage = `
 🎯 *Ваш расчёт:*
@@ -469,7 +469,7 @@ ${addonsText}
 
 *Сроки:* ${timeText}
 
-💰 *Итоговая стоимость: ${total}₽*
+💰 *Итоговая стоимость: от ${total}₽*
 
 Спасибо за использование калькулятора! Наш менеджер скоро свяжется с вами.
   `;
@@ -487,8 +487,8 @@ ${addonsText}
     const isFree = a.freeFor.includes(tariff.id);
     return `${a.name} (${isFree ? 'бесплатно' : a.price + '₽'})`;
   }).join(', ') : 'нет'}
-Срочность: ${urgent ? `Срочно (+20000₽) — ${tariff.urgentTime}` : `Обычная — ${tariff.normalTime}`}
-💰 *Итоговая стоимость: ${total}₽*
+Срочность: ${urgent ? `Срочно (+5000₽) — ${tariff.urgentTime}` : `Обычная — ${tariff.normalTime}`}
+💰 *Итоговая стоимость: от ${total}₽*
   `;
   await notifyAdmins(managerMessage);
 
@@ -575,8 +575,8 @@ bot.hears("❓ Вопросы и ответы", (ctx) => {
 Цена формируется на основе выбранного тарифа и необходимого функционала. Для предварительного расчёта вы можете воспользоваться нашим ботом-калькулятором или связаться с менеджером.
 
 3️⃣ Сколько стоит обслуживание?
-- Для сайтов: техническое обслуживание — 9 000 ₽/мес.
-- Для ботов: техническая поддержка — 7 000 ₽/мес.
+- Для сайтов: техническое обслуживание — 10 000 ₽/мес.
+- Для ботов: техническая поддержка — 5 000 ₽/мес.
 Также доступны дополнительные услуги (SEO, контекстная реклама и др.).
 
 4️⃣ Что входит в обслуживание?
